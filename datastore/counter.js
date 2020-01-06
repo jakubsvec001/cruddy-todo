@@ -38,14 +38,14 @@ const writeCounter = (count, callback) => {
 
 // Public API - Fix this function //////////////////////////////////////////////
 
-exports.getNextUniqueId = (callback) => {
+exports.getNextUniqueId = callback => {
   readCounter((err, number) => {
     if (err) {
       console.log("ERROR getting counter.txt");
     } else {
       writeCounter(number + 1, () => {
         callback(null, zeroPaddedNumber(number + 1));
-      })
+      });
     }
   });
 };
